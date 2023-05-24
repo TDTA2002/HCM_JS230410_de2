@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang web phim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(39, 39, 63);
+        }
+
+        h3 {
+            color: #dac733;
+        }
+
+        .movie-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            gap: 10px;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .movie {
+            width: 200px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .movie img {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .movie img:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar {
+            background-color: #222;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            width: 500px;
+            height: 20px;
+        }
+
+        .search-input:focus {
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .search-icon:hover {
+            color: #fff;
+        }
+
+        .nagi {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="./img/Screenshot 2023-02-14 183327 (1).png" height="60px" alt="">
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Tìm kiếm...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="navbar-brand"><img src="" alt=""> Cùng Xem Phim với T.Anh</div>
+        <div class="navbar-brand"><a title="LIÊN HỆ QUẢNG CÁO" href="#" onclick="trollthoi()">LIÊN HỆ QUẢNG CÁO</a>
+        </div>
+    </div>
+    <div class="nagi">
+        <label for="genre-select" style="font-size: 20px; color: #b8b484; margin-bottom: 5px;">Chọn thể loại:</label>
+        <select id="genre-select" style="font-size: 16px; padding: 5px; border-radius: 5px;">
+            <option value="all">Tất cả</option>
+            <option value="tinhcam">Tình cảm</option>
+            <option value="kinhdi">Kinh dị</option>
+            <option value="hanhdong">Hành động</option>
+        </select>
+        <div id="sort-container">
+            <label for="sort-select" style="font-size: 20px; color: #b8b484; margin-bottom: 5px;">Sắp xếp theo
+                ngày:</label>
+            <select id="sort-select" style="font-size: 16px; padding: 5px; border-radius: 5px;">
+                <option value="none">Không sắp xếp</option>
+                <option value="asc">Tăng dần theo ngày tháng</option>
+                <option value="desc">Giảm dần theo ngày tháng</option>
+            </select>
+        </div>
+    </div>
+    <div class="movie-list">
+        <div class="movie kinhdi" data-date="2023-02-01">
+            <img src="./img/poster-phim-Người-bất-tử.jpg" alt="Người Bất Tử">
+            <h3>Người Bất Tử</h3>
+        </div>
+        <div class="movie hanhdong" data-date="2023-05-01">
+            <img src="./img/wmyndg0_600x800.jpg" alt="Chim Ưng Đen">
+            <h3>Chim Ưng Đen </h3>
+        </div>
+        <div class="movie tinhcam" data-date="2023-06-21">
+            <img src="./img/phim-tinh-cam-trung-quoc-4-163842739345116341932.jpg" alt="Skate Into Love">
+            <h3>Skate Into Love</h3>
+        </div>
+        <div class="movie kinhdi" data-date="2022-05-01">
+            <img src="./img/download.jpg" alt="Gã Hề Ma Quái 2">
+            <h3>Gã Hề Ma Quái 2</h3>
+        </div>
+        <div class="movie kinhdi" data-date="2021-05-01">
+            <img src="./img/nguy-hiem-vay-quanh-250x350.jpg" alt="Boy 7">
+            <h3>Boy 7</h3>
+        </div>
+        <div class="movie tinhcam" data-date="2020-06-01">
+            <img src="./img/the-best-of-me.jpg" alt="The Best of Me">
+            <h3>The Best of Me</h3>
+        </div>
+        <div class="movie hanhdong" data-date="2022-12-01">
+            <img src="./img/truy-sat-481316.jpg" alt="Truy Sát">
+            <h3>Truy Sát</h3>
+        </div>
+        <div class="movie hanhdong" data-date="2013-05-01">
+            <img src="./img/phim-hanh-dong-elle-man-1.jpg" alt="FallOut">
+            <h3>FallOut</h3>
+        </div>
+        <div class="movie tinhcam" data-date="2033-05-01">
+            <img src="./img/elle-viet-nam-top-20-bo-phim-tinh-cam-1.jpg" alt="Breathe">
+            <h3>Breathe</h3>
+        </div>
+        <div class="movie kinhdi" data-date="2023-03-31">
+            <img src="./img/us-1647490642.jpg" alt="Chúng Ta">
+            <h3>Chúng Ta</h3>
+        </div>
+        <div class="movie tinhcam" data-date="2023-05-21">
+            <img src="./img/Yeu-Lai-Tu-Dau-Goldphim.jpg" alt="Yêu Lại Từ Đầu">
+            <h3>Yêu Lại Từ Đầu</h3>
+        </div>
+        <div class="movie hanhdong" data-date="2023-05-10">
+            <img src="./img/Nam-Anh-Em-Sieu-Nhan-Goldphim.jpg" alt="Power Rangers">
+            <h3>Power Rangers</h3>
+        </div>
+    </div>
+
+    <script>
+        const genreSelect = document.getElementById('genre-select');
+        const movieList = document.querySelector('.movie-list');
+        const movies = document.querySelectorAll('.movie');
+        const searchInput = document.querySelector('.search-input');
+
+        genreSelect.addEventListener('change', function () {
+            const selectedGenre = genreSelect.value;
+
+            movies.forEach(function (movie) {
+                movie.style.display = 'none';
+
+                if (selectedGenre === 'all' || movie.classList.contains(selectedGenre)) {
+                    movie.style.display = 'block';
+                }
+            });
+        });
+
+        searchInput.addEventListener('input', function () {
+            const searchKeyword = searchInput.value.trim().toLowerCase();
+
+            movies.forEach(function (movie) {
+                const title = movie.querySelector('h3').textContent.toLowerCase();
+
+                if (title.includes(searchKeyword)) {
+                    movie.style.display = 'block';
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+        });
+
+        movies.forEach(function (movie) {
+            const img = movie.querySelector('img');
+            img.addEventListener('click', function () {
+                const alt = img.getAttribute('alt');
+                alert(`Xem phim thôi: ${alt}`);
+            });
+        });
+
+        function trollthoi() {
+            alert("Liên hệ 0823.868.883");
+            event.preventDefault();
+        }
+
+
+        const sortSelect = document.getElementById('sort-select');
+
+        sortSelect.addEventListener('change', function () {
+            const sortValue = sortSelect.value;
+            const movieArray = Array.from(movies);
+
+            movieArray.sort(function (a, b) {
+                const dateA = new Date(a.dataset.date);
+                const dateB = new Date(b.dataset.date);
+
+                if (sortValue === 'asc') {
+                    return dateA - dateB;
+                } else if (sortValue === 'desc') {
+                    return dateB - dateA;
+                } else {
+                    return 0;
+                }
+            });
+
+            movieArray.forEach(function (movie) {
+                movieList.appendChild(movie);
+            });
+        });
+
+    </script>
+</body>
+
+</html>
